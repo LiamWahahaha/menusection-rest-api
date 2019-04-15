@@ -1,7 +1,5 @@
 # menusection-rest-api
 
-A menusection API written in Python using Flask and SQLAlchemy.
-
 ## Install guide
 
 #### Clone the repo
