@@ -2,24 +2,24 @@
 
 ## Install guide
 
-#### Clone the repo
+#### 1. Clone the repo
 ```bash
 $ git clone git@github.com:LiamWahahaha/menusection-rest-api.git
 $ cd menusection-rest-api
 ```
 
-#### Create the virtualenv
+#### 2. Create the virtualenv
 ```bash
 $ python3 -m venv venv
 ```
 
-#### Install dependencies
+#### 3. Install dependencies
 ```bash
 $ source venv/bin/activate
 $ pip3 install -r requirements.txt
 ```
 
-#### Run the app
+#### 4. Run the app
 ```bash
 $ python3 app.py
 $ python3 app.py --host 0.0.0.0
