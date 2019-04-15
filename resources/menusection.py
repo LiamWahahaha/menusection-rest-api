@@ -5,8 +5,9 @@ from models.menusection import MenusectionModel
 class Menusection(Resource):
     def get(self, id):
         menusection = MenusectionModel.find_by_id(id)
+
         if menusection:
-            return menusection.json(), 200
+            return {'MenuSection': [menusection.json()]}, 200
         else:
             return {'message': 'Menusection not found.'}, 204
 
@@ -21,18 +22,22 @@ class Menusection(Resource):
         menusection = MenusectionModel.find_by_id(id)
 
         if menusection:
-            menusection.name = data_payload['name']
-            try:
-                menusection.save_to_db()
-            except:
-                return {'message': 'An error has occurred modifying the menusection'}, 500
-            return menusection.json(), 201
+            if MenusectionModel.find_by_name(data_payload['name']):
+                return {'message': 'The menusection \'{}\' already exists.'.format(data_payload['name'])}, 200
+            else:
+                menusection.name = data_payload['name']
+                try:
+                    menusection.save_to_db()
+                except:
+                    return {'message': 'An error has occurred modifying the menusection'}, 500
+                return {'success': True, 'MenuSection': menusection.json()}, 201
         else:
             return {'message': 'No specific menusection can modify'}, 204
 
 
     def delete(self, id):
         menusection = MenusectionModel.find_by_id(id)
+
         if menusection:
             try:
                 menusection.delete_from_db()
@@ -55,8 +60,9 @@ class MenusectionList(Resource):
                             required=True,
                             help='This field is required')
         data_payload = parser.parse_args()
+
         if MenusectionModel.find_by_name(data_payload['name']):
-            return {'message': 'The menusectio  \'{}\' exists.'.format(data_payload['name'])}, 200
+            return {'message': 'The menusection \'{}\' already exists.'.format(data_payload['name'])}, 200
         else:
             menusection = MenusectionModel(data_payload['name'])
             try:
