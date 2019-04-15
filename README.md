@@ -5,11 +5,11 @@
 #### 1. Clone the repo
 ```bash
 $ git clone git@github.com:LiamWahahaha/menusection-rest-api.git
-$ cd menusection-rest-api
 ```
 
 #### 2. Create the virtualenv
 ```bash
+$ cd menusection-rest-api
 $ python3 -m venv venv
 ```
 
