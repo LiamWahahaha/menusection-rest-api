@@ -33,23 +33,23 @@ default port is 5000
 
 ## API documentation
 
-* GET /menusection
+* GET ```/menusection```
 
   Get all menu sections
 
-* GET /menusection/<int:id>
+* GET ```/menusection/<int:id>```
 
   Get a menu section by id
 
-* POST /menusection
+* POST ```/menusection```
 
   Add a new menu section
 
-* POST /menusection/<int:id>
+* POST ```/menusection/<int:id>```
 
   Edit a menu section
 
-* DELETE /menusection/<int:id>
+* DELETE ```/menusection/<int:id>```
 
   Delete a menu section
 
@@ -57,20 +57,21 @@ default port is 5000
 
 * Get all menu sections
 
-  > curl -v http://host:port/menusection
+  ```curl -v http://host:port/menusection```
 
 * Get a menu section by id
 
-  > curl -v http://host:port/menusection/<id>
+  ```curl -v http://host:port/menusection/<id>```
 
 * Add a new menu section
 
-  > curl http://host:port/menusection -d 'name=Lunch Specials' -X POST
+  ```curl http://host:port/menusection -d 'name=Lunch Specials' -X POST```
 
 * Edit a menu section
 
-  > curl http://host:port/menusection/<id> -d 'name=Lunch Special' -X POST
+  ```curl http://host:port/menusection/<id> -d 'name=Lunch Special' -X POST```
 
 * Delete a menu section
 
-  > curl http://host:port/menusection/<id> -X DELETE
+  ```curl http://host:port/menusection/<id> -X DELETE```
+
